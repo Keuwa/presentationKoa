@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "koa": "^1.2.0",
+    "koa-bodyparser": "^2.0.1",
+    "koa-mongo": "^0.5.0",
+    "koa-mongoose": "^1.0.9"
+  }
+}
