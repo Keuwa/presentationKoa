@@ -20,23 +20,22 @@ module.exports = function(app){
 
      offers: function *(){
        var names = Object.keys(db);
-       this.body = 'pets: ' + names.join(', ');
+       this.body = "Not done yet";
      },
 
      remove: function *(){
-       var names = Object.keys(db);
-       this.body = 'pets: ' + names.join(', ');
+       var id = this.request.url.split('/')[2];
+       var res = yield User.findByIdAndRemove(id).exec();
+       console.log(id);
+       this.body = res
      },
 
      show: function *(){
-       var names = Object.keys(db);
-       this.body = 'pets: ' + names.join(', ');
+       this.body = "Not done yet";
      },
 
      update: function *(name){
-       var pet = db[name];
-       if (!pet) return this.throw('cannot find that pet', 404);
-       this.body = pet.name + ' is a ' + pet.species;
+       this.body = "Not done yet";
      }
    };
   return usersFunction;

@@ -1,28 +1,19 @@
-var route = require('koa-route');
-
-module.exports = function(app){
-
-  app.use(route.post('/users', function*() {
-      this.body = 'Get';
-  }));
+module.exports = function(router,app){
 
 
-  router
-  .post('/',
-  server.middlewares.bodyparser,
-  server.middlewares.ensureBodyFields(['email', 'password']),
-  server.actions.users.create)
+  router.post('/user', app.actions.users.create);
 
-  .get('/:id', server.actions.users.show)
-  .get('/', server.actions.users.list)
-  .get('/:id/offers', server.actions.users.offers)
+  router.get('/user', app.actions.users.list);
 
-  .put('/:id',
-  server.middlewares.bodyparser,
-  server.actions.users.update)
+  router.del('/user/:id', app.actions.users.remove);
 
-  .delete('/:id',
-  server.actions.users.remove)
+  router.get('/user/:id', app.actions.users.show);
 
-  return router;
+  router.put('/user/:id', app.actions.users.update);
+
+  router.get('/user/:id/offers', app.actions.users.offers);
+
+
+
+return router
 };
