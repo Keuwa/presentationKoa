@@ -6,7 +6,7 @@ module.exports = function(app){
 
   //app.models.Job = require('./Job')(app);
   app.models.User = require('./User')(app);
-  //app.models.AuthToken = require('./AuthToken')(app);
+  app.models.AuthToken = require('./AuthToken')(app);
 }
 
 

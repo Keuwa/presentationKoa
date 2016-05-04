@@ -31,11 +31,16 @@ module.exports = function(app){
      },
 
      show: function *(){
-       this.body = "Not done yet";
+       var id = this.request.url.split('/')[2];
+       var res = yield User.findById(id).exec();
+       this.body = res;
      },
 
-     update: function *(name){
-       this.body = "Not done yet";
+     update: function *(){
+       var id = this.request.url.split('/')[2];
+       var res = yield User.findByIdAndUpdate(id,this.request.body).exec();
+       console.log(id);
+       this.body = res
      }
    };
   return usersFunction;
